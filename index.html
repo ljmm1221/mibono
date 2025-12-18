@@ -21,12 +21,30 @@
 <body>
 
     <div class="card">
-        <h1>¡BONO EXCLUSIVO!</h1>
+        <h1>¡🎁BONO EXCLUSIVO!</h1>
         <img src="bono.jpg" alt="Bono especial">
-        <a href="https://wa.me/+34602433267?text=Hola!%20Quiero%20reservar" class="btn-whatsapp">
+            <button onclick="abrirWhatsApp()" class="btn-whatsapp"">
             RESERVAR POR WHATSAPP
-        </a>
+        </button>
+    
     </div>
+    <script>
+        function abrirWhatsApp() {
+            // Dividimos el número para que los robots no lo detecten entero
+            // Ejemplo para España (34) número 600 000 000
+            var p1 = "34";
+            var p2 = "602";
+            var p3 = "433267"; 
+            
+            var mensaje = encodeURIComponent("¡Hola! Vi el bono en Facebook y quiero hacer una reserva.");
+            
+            // Construye el enlace solo cuando el usuario hace clic
+            var url = "https://wa.me/" + p1 + p2 + p3 + "?text=" + mensaje;
+            
+            // Abre WhatsApp
+            window.open(url, '_blank');
+        }
+    </script>
 
 </body>
 </html>
